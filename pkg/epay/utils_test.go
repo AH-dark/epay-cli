@@ -1,6 +1,7 @@
-package utils
+package epay
 
 import (
+	"github.com/AH-dark/bytestring"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -23,5 +24,5 @@ func TestCalculateEPaySign(t *testing.T) {
 		"sign_type":    "md5",
 	}
 
-	asserts.Equal(testData["sign"], CalculateEPaySign(testData, "123456"))
+	asserts.Equal(testData["sign"], bytestring.BytesToString(CalculateEPaySign(testData, "123456")))
 }

@@ -6,6 +6,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
+	"github.com/AH-dark/bytestring"
 	"github.com/AH-dark/epay-cli/actions/factory"
 	"github.com/AH-dark/epay-cli/pkg/epay"
 	"github.com/AH-dark/epay-cli/pkg/utils"
@@ -18,8 +19,8 @@ func NewService() factory.ActionService {
 	return &service{}
 }
 
-func (svc *service) getSign(c *cli.Context) string {
-	sign := utils.CalculateEPaySign(map[string]string{
+func (svc *service) getSign(c *cli.Context) []byte {
+	sign := epay.CalculateEPaySign(map[string]string{
 		"pid":          strconv.Itoa(c.Int("pid")),
 		"type":         c.String("type"),
 		"out_trade_no": c.String("trade-no"),
@@ -58,7 +59,7 @@ func (svc *service) Do(c *cli.Context) error {
 		ClientIP:   c.String("client-ip"),
 		Device:     utils.EmptyPtr(epay.DeviceType(c.String("device"))),
 		Param:      utils.EmptyPtr(c.String("param")),
-		Sign:       sign,
+		Sign:       bytestring.BytesToString(sign),
 		SignType:   "MD5",
 	})
 	if err != nil {

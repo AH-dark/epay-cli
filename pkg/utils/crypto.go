@@ -2,15 +2,19 @@ package utils
 
 import (
 	"crypto/md5"
-	"fmt"
+	"encoding/hex"
+
+	"github.com/AH-dark/bytestring"
 )
 
 func MD5(str string) []byte {
 	m := md5.New()
 	m.Write([]byte(str))
-	return m.Sum(nil)
+	dst := make([]byte, 32)
+	hex.Encode(dst, m.Sum(nil))
+	return dst
 }
 
 func MD5String(str string) string {
-	return fmt.Sprintf("%x", MD5(str))
+	return bytestring.BytesToString(MD5(str))
 }

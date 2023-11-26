@@ -3,13 +3,14 @@ module github.com/AH-dark/epay-cli
 go 1.21
 
 require (
+	github.com/AH-dark/bytestring v1.0.0
 	github.com/imroc/req/v3 v3.42.2
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/onrik/gorm-logrus v0.5.0
 	github.com/samber/lo v1.38.1
 	github.com/shopspring/decimal v1.3.1
 	github.com/sirupsen/logrus v1.9.3
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.4
 	github.com/urfave/cli/v2 v2.25.7
 	gorm.io/driver/mysql v1.5.1
 	gorm.io/driver/postgres v1.5.4

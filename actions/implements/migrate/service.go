@@ -13,7 +13,7 @@ import (
 	"github.com/AH-dark/epay-cli/actions/factory"
 	"github.com/AH-dark/epay-cli/database/conn"
 	"github.com/AH-dark/epay-cli/database/model"
-	"github.com/AH-dark/epay-cli/pkg/log"
+	"github.com/AH-dark/epay-cli/internal/log"
 	"github.com/AH-dark/epay-cli/pkg/utils"
 )
 

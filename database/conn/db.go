@@ -11,7 +11,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
 
-	"github.com/AH-dark/epay-cli/pkg/log"
+	"github.com/AH-dark/epay-cli/internal/log"
 )
 
 var (
